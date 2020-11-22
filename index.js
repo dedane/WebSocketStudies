@@ -14,10 +14,10 @@ const websocket = new WebSocketServer({
 websocket.on("request", request => {
 
     connection = request.accept(null, request.origin)
-    connection.on("onopen", () => console.log("OPENED"));
-    connection.on("onclose", () => console.log("CLOSED"))
-    connection.on("onmessage", message =>{ 
-        console.log(`Received message ${message}`)
+    connection.on("open", () => console.log("OPENED"));
+    connection.on("close", () => console.log("CLOSED"))
+    connection.on("message", message =>{ 
+        console.log(`Received message ${message.utf8Data}`)
     })
 
 
